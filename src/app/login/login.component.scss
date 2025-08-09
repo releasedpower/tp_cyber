@@ -1,0 +1,48 @@
+.loginLayout {
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.loginBox {
+  border: solid 1px #c6c5c7;
+  padding: 50px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__field {
+    input {
+      border: solid 1px #c6c5c7;
+      padding: 10px;
+      width: 200px;
+    }
+  }
+
+  &__button {
+    button {
+      border: none;
+      background-color: #ddabed;
+      text-transform: uppercase;
+      padding: 12px 10px;
+      min-width: 224px;
+      transition: ease-in 0.3s;
+
+      &:hover {
+        background-color: #ab84b8;
+      }
+    }
+  }
+}

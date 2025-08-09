@@ -1,0 +1,13 @@
+button {
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none; /* Removes the default outline */
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
