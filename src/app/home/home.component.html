@@ -1,4 +1,17 @@
 <div class="home">
   <app-layout></app-layout>
-  <div class="homeLayout"></div>
+  <div class="homeLayout">
+    <div class="productsList">
+      @for(product of products; track $index){
+      <div class="productCard" (click)="details(product.id)">
+        <div class="productCard__image">
+          <picture>
+            <img [src]="product.image" alt="" />
+          </picture>
+        </div>
+        <div class="productCard__title">{{ product.title }}</div>
+      </div>
+      }
+    </div>
+  </div>
 </div>

@@ -3,4 +3,42 @@
 }
 
 .homeLayout {
+  padding: 50px 15px;
+}
+
+.productsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.productCard {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding-bottom: 40px;
+  font-size: 22px;
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: #eeeeee;
+    img {
+      height: 300px;
+    }
+  }
+
+  &__title {
+    padding-top: 30px;
+  }
+
+  &:hover {
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+  }
 }
