@@ -1,1 +1,39 @@
-<p>details works!</p>
+<div class="details">
+  <app-layout></app-layout>
+  <div class="detailsLayout">
+    <div class="detailsLayout__title">
+      <h2>{{ product?.title }}</h2>
+    </div>
+    <div class="detailsLayout__details">
+      <div class="detailsLayout__details__description">
+        <h3>Description :</h3>
+        <p>{{ product?.description }}</p>
+      </div>
+      <div class="detailsLayout__details__comments">
+        <h3>Comments :</h3>
+        <div class="commentsSection">
+          <div class="commentsSection__input">
+            <textarea rows="6" placeholder="Add a comment..."></textarea>
+            <div class="commentsSection__input__btn">
+              <button>Post</button>
+            </div>
+          </div>
+          <div class="commentsSection__comments">
+            <div class="commentBox">
+              <div class="commentBox__name">Matt</div>
+              <div class="commentBox__comment">Nice perfume</div>
+            </div>
+            <div class="commentBox">
+              <div class="commentBox__name">Lauren</div>
+              <div class="commentBox__comment">Cool perfume</div>
+            </div>
+            <div class="commentBox">
+              <div class="commentBox__name">Dave</div>
+              <div class="commentBox__comment">Good perfume</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
