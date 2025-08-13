@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,10 +9,18 @@ import { Router } from '@angular/router';
   styleUrl: './layout.component.scss',
 })
 export class LayoutComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService:AuthService) { }
 
   logout() {
-    this.router.navigate(['/login']);
+    this.authService.logout().subscribe({
+      next: () => {
+        console.log('Logged out');
+        this.router.navigate(['/login']); // go to login page
+      },
+      error: (err) => {
+        console.error('Logout failed', err);
+      }
+    });
   }
 
   home() {
