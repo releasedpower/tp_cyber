@@ -8,7 +8,7 @@
 
 .productsList {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;       // allow products to go to next line
   justify-content: center;
   gap: 50px;
   width: 100%;
@@ -23,19 +23,25 @@
   border: 1px solid black;
   padding-bottom: 40px;
   font-size: 22px;
+  width: 400px;          // fixed card width to control wrapping
+
   &__image {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 100%;          // take full card width
     background-color: #eeeeee;
+
     img {
       height: 300px;
+      width: 100%;
+      object-fit: cover;  // keep image ratio
     }
   }
 
   &__title {
     padding-top: 30px;
+    text-align: center;
   }
 
   &:hover {

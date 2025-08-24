@@ -8,7 +8,7 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:3000'; // your Node API
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
     return this.http.post(
@@ -18,15 +18,17 @@ export class AuthService {
     );
   }
 
-  getProfile() {
-    return this.http.get(`${this.apiUrl}/profile`, { withCredentials: true });
+  logout() {
+    return this.http.post(
+      'http://localhost:3000/auth/logout',
+      {},
+      { withCredentials: true } // send the cookie
+    );
+  }
+  getLoggedinUserId() {
+    return this.http.get<{ userId: number }>(`${this.apiUrl}/auth/check`, {
+      withCredentials: true,
+    });
   }
 
-  logout() {
-  return this.http.post(
-    'http://localhost:3000/auth/logout',
-    {},
-    { withCredentials: true } // send the cookie
-  );
-}
 }

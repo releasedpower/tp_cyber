@@ -11,16 +11,26 @@ import { ProductService } from "../services/product.service";
   styleUrl: "./home.component.scss",
 })
 export class HomeComponent implements OnInit {
-  private productService = inject(ProductService);
   products: Product[] = [];
+  errorMessage = "";
 
-  constructor(private router: Router) {}
+  constructor(private productService: ProductService, private router:Router) {}
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
+    this.loadProducts();
   }
 
-  details(id: number) {
+  loadProducts() {
+    this.productService.getProducts().subscribe({
+      next: (data) => {
+        this.products = data;
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.error || "Failed to load products";
+      },
+    });
+  }
+    details(id: number) {
     this.router.navigate(["/details", id]);
   }
 }

@@ -2,13 +2,15 @@
   <app-layout></app-layout>
   <div class="detailsLayout">
     <div class="detailsLayout__title">
-      <h2>{{ product?.title }}</h2>
+      <h2>{{ product?.name }}</h2>
     </div>
+
     <div class="detailsLayout__details">
       <div class="detailsLayout__details__description">
         <h3>Description :</h3>
         <p>{{ product?.description }}</p>
       </div>
+
       <div class="detailsLayout__details__comments">
         <h3>Comments :</h3>
         <div class="commentsSection">
@@ -22,13 +24,18 @@
               <button (click)="postComment()">Post</button>
             </div>
           </div>
-          <div class="commentsSection__comments">
-            @for (comment of comments; track $index){
-            <div class="commentBox">
-              <div class="commentBox__name">{{ comment.username }}</div>
+
+          <!-- <div class="commentsSection__comments">
+            <div class="commentBox" *ngFor="let comment of comments">
+              <div class="commentBox__name">{{ comment.id }}</div>
               <div class="commentBox__comment">{{ comment.comment }}</div>
             </div>
-            }
+          </div> -->
+          <div class="commentsSection__comments">
+            <div class="commentBox" *ngFor="let comment of comments">
+              <div class="commentBox__name">{{ comment.id }}</div>
+              <div class="commentBox__comment" [innerHTML]="comment.comment"></div>
+            </div>
           </div>
         </div>
       </div>
